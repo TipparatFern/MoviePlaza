@@ -81,6 +81,7 @@ app.get('/',function(req,res){
     res.render('home.ejs');
 });
 
+//movie
 app.get('/movie', function(req, res){
     Movie.find({}, function(err, allMovies){
         if(err){
@@ -105,6 +106,7 @@ app.post('/movie', function(req,res){
     });
 });
 
+//show
 app.get('/movie/:id', function(req,res){
     //ref or join have to reveal it , follow var that we want to reveal, execute
     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
@@ -117,7 +119,7 @@ app.get('/movie/:id', function(req,res){
     });
 });
 
-
+//comments
 //middle wear route function function
 app.get('/movie/:id/comments/new', isLoggedIn, function(req,res){
     Movie.findById(req.params.id, function(err, foundMovie){
@@ -148,6 +150,7 @@ app.post('/movie/:id/comments', isLoggedIn, function(req, res){
     });
 });
 
+//sign up and log in
 app.get('/signup',function(req,res){
     res.render('signup.ejs');
 });
