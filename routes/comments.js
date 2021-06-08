@@ -1,6 +1,6 @@
 var express     = require('express'),
     router      = express.Router({mergreParams: true}),
-    Movie       = reequire('../models/movie'),
+    Movie       = require('../models/movie'),
     Comment     = require('../models/comment');
 //comments
 //middle wear route function function
