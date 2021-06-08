@@ -5,11 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link href="/stylesheet/main.css" rel="stylesheet">
+    <link href="public/stylesheet/main.css" rel="stylesheet">
     <title>MOVIE_APP</title>
+    <style>
+      .navbar {
+      background:  #3D4C53;
+      }
+      .link-light{
+      padding: 10px;
+      padding-top: 10px;
+      }
+      #search{
+      color-interpolation-filters: #F1433F; 
+      margin-left: 1000px;
+      margin-top: 10px;
+      max-width: 500px;
+      }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid" >
           <a class="navbar-brand" href="/">MOVIE PLAZA</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,32 +42,33 @@
                 <a class="nav-link" href="/theater">THEATER</a>
               </li>
             </ul>
+            <div id="search"> 
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+              </form>
+            </div>
             <ul>
               <% if(!currentUser) { %>
               <ii>
-                <a class="btn btn-primary" href="/login" role="button">Log in</a>
+                <a class="link-light" href="/login" role="button">Log in</a>
               </ii>
               <ii>
-                <a class="btn btn-primary" href="/signup" role="button">Sign up</a>
+                <a class="link-light" href="/signup" role="button">Sign up</a>
               </ii>
             </ul>
              <% } else { %>
               <ii>
-                <a class="btn btn-primary" href="#" role="button">Log as <%= currentUser.username %></a>
+                <a class="link-light" href="#" role="button">Log as <%= currentUser.username %></a>
               </ii>
               <ii>
-                <a class="btn btn-primary" href="/logout" role="button">Log out</a>
+                <a class="link-light" href="/logout" role="button">Log out</a>
               </ii>
             </ul>
             <% } %>
             </div>
         </div>
-      </nav>
-      <nav>
-        <div>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+    </nav>
+    
+   
+    
