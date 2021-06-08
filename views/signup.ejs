@@ -9,13 +9,32 @@
     <title>MOVIE_APP</title>
 </head>
 <body>
-    <form action='/register' method='POST'>
-        <input type='text' name='firstname' placeholder='First name'>
-        <input type='text' name='lastname' placeholder='Last name'>
-        <input type='text' name='username' placeholder='username'>
-        <input type='email' name='email' placeholder='email address'>
-        <input type='password' name='password' placeholder='password'>
-        <input type='submit' value='Sign up'>
-    </form>
+    <div class="container">
+        <div class="card border-primary mb-3" style="max-width: 500px;">
+            <div class="card-header">Movie Plaza</div>
+            <div class="card-body text-primary col align-self-center">
+                <form action='/signup' method='POST'>
+                    <div class="row mt-2">
+                         <div class="col"> 
+                            <input type='text' class="form-control" name='firstname' placeholder='First name'>
+                        </div>
+                        <div class="col">
+                            <input type='text' class="form-control" name='lastname' placeholder='Last name'>
+                        </div>
+                    </div>
+                    <div class="col mt-4" style="max-width: 100 px;" >
+                        <input type='text' class="form-control" name='username' placeholder='username'>
+                     </div>
+                    <div class="col mt-4" style="max-width: 100 px;" >
+                        <input type='email' class="form-control" name='email' placeholder='email address'>
+                    </div>
+                    <div class="col mt-4" style="max-width: 100 px;" >
+                        <input type='password' class="form-control" name='password' placeholder='password'>
+                    </div>
+                    <button class="mt-5 btn btn-lg btn-primary " type="submit" style="max-width: 100 px">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

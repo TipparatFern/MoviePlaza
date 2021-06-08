@@ -87,7 +87,7 @@ app.get('/movie', function(req, res){
         if(err){
             console.log(err);
         } else{
-            res.render('movies/movie.ejs',{movies: allMovies});
+            res.render('movies/index.ejs',{movies: allMovies});
         }
     });
 });
