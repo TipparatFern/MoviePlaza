@@ -2,6 +2,7 @@ var express         = require('express'),
     app             = express(),
     bodyParser      = require('body-parser'),
     mongoose        = require('mongoose'),
+    User            = require('./models/user'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local'),
     seedDB          = require('./seed');
