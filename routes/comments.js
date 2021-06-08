@@ -1,6 +1,10 @@
+var express     = require('express'),
+    router      = express.Router(),
+    Movie       = reequire('../models/movie'),
+    Comment     = require('../models/comment');
 //comments
 //middle wear route function function
-app.get('/movie/:id/comments/new', isLoggedIn, function(req,res){
+router.get('/new', isLoggedIn, function(req,res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
             console.log(err);
@@ -10,7 +14,7 @@ app.get('/movie/:id/comments/new', isLoggedIn, function(req,res){
     });
 });
 
-app.post('/movie/:id/comments', isLoggedIn, function(req, res){
+router.post('/', isLoggedIn, function(req, res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
             console.log(err);
@@ -38,3 +42,5 @@ function isLoggedIn(req, res, next){
     }// no
     res.redirect('/login');
 }
+
+module.exports = router;

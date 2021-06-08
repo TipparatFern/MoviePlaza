@@ -1,5 +1,9 @@
+var express     = require('express'),
+    router      = express.Router(),
+    Movie       = reequire('../models/movie');
+
 //movie
-app.get('/movie', function(req, res){
+router.get('/', function(req, res){
     Movie.find({}, function(err, allMovies){
         if(err){
             console.log(err);
@@ -9,7 +13,7 @@ app.get('/movie', function(req, res){
     });
 });
 
-app.post('/movie', function(req,res){
+router.post('/', function(req,res){
     var name = req.body.name;
     var image = req.body.image;
     var desc = req.body.desc;
@@ -24,7 +28,7 @@ app.post('/movie', function(req,res){
 });
 
 //show
-app.get('/movie/:id', function(req,res){
+router.get('/:id', function(req,res){
     //ref or join have to reveal it , follow var that we want to reveal, execute
     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
         if(err){
@@ -35,3 +39,5 @@ app.get('/movie/:id', function(req,res){
         }
     });
 });
+
+module.exports = router;
