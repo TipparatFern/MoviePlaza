@@ -48,8 +48,6 @@ var theater = [
     {name:'THEATER 5'},  
 ];
 
-
-
 app.use('/', indexRoutes);
 app.use('/movie', movieRoutes);
 app.use('/movie/:id/comments', commentRoutes);
