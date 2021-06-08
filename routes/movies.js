@@ -1,6 +1,6 @@
 var express     = require('express'),
     router      = express.Router(),
-    Movie       = reequire('../models/movie');
+    Movie       = require('../models/movie');
 
 //movie
 router.get('/', function(req, res){
