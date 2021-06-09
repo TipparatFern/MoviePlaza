@@ -43,18 +43,6 @@ function seedDB(){
                     console.log(err);
                 }else{
                     console.log('New data added');
-                    Comment.create(
-                        {
-                            author: 'haha',
-                            text: "nice movie"
-                        }, function(err, comment){
-                            if(err){
-                                console.log(err);
-                            } else {
-                                movie.comments.push(comment);
-                                movie.save();
-                            }
-                        });
                 }
             });
         });

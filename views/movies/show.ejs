@@ -36,7 +36,7 @@
 <a class = "btn btn-primary" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
 <% movies.comments.forEach(function(comment){ %>
   <p>
-    <strong><%= comment.author %></strong> - <%= comment.text %>
+    <strong><%= comment.author.username %></strong> - <%= comment.text %>
   </p>  
 <%});%>
 
