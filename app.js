@@ -9,7 +9,8 @@ var express         = require('express'),
 
 var movieRoutes     = require ('./routes/movies'),
     commentRoutes   = require ('./routes/comments'),
-    indexRoutes     = require ('./routes/index');
+    indexRoutes     = require ('./routes/index'),
+    theaterRoutes   = require ('./routes/theater');
 
 mongoose.connect('mongodb://localhost/movieplaza');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -38,38 +39,10 @@ app.use(function(req,res,next){
 });
 
 
-var theater = [
-    {name:'THEATER 1'},
-    {name:'THEATER 2'},
-    {name:'THEATER 3'},
-    {name:'THEATER 4'},
-    {name:'THEATER 5'},  
-];
-
 app.use('/', indexRoutes);
 app.use('/movie', movieRoutes);
 app.use('/movie/:id/comments', commentRoutes);
 
-
-app.get('/ticket',function(req,res){
-    res.render('ticket.ejs',{movie: movie});
-});
-
-app.get('/description',function(req,res){
-    res.render('description.ejs');
-});
-
-app.get('/showtime',function(req,res){
-    res.render('showtime.ejs');
-});
-
-app.get('/theater',function(req,res){
-    res.render('theater.ejs',{theater: theater});
-});
-
-app.get('/history',function(req,res){
-    res.render('history.ejs');
-});
 
 app.listen('3000',function(){
     console.log("Movie Plaza is running");
