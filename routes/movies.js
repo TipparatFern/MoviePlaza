@@ -17,7 +17,10 @@ router.post('/', function(req,res){
     var name = req.body.name;
     var image = req.body.image;
     var desc = req.body.desc;
-    var newMovie = {name: name, image: image, desc: desc};
+    var genre = req.body.genre;
+    var time = req.body.time;
+    var rating = req.body.time;
+    var newMovie = {name: name, image: image, desc: desc, genre: genre, time: time, rating: rating};
     Movie.create(newMovie, function(err, newlyCreated){
         if(err){
             console.log(err);

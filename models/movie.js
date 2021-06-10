@@ -4,6 +4,9 @@ var movieSchema = new mongoose.Schema({
     name: String,
     image: String,
     desc: String,
+    genre: String,
+    time: String,
+    rating: String,
     comments: [
         {//keep data comment schema in this
             type: mongoose.Schema.Types.ObjectId,

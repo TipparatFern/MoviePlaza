@@ -4,31 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" >
     <link href="public/stylesheet/main.css" rel="stylesheet">
     <title>MOVIE_APP</title>
     <style>
-      .navbar {
-      background:  #3D4C53;
+      .navbar{
+        background-color: #70B7BA;
       }
-      .link-light{
-      padding: 10px;
-      padding-top: 10px;
+      .icon{
+        padding: 10px;
       }
-      #search{
-      margin-left: 1000px;
-      margin-top: 10px;
-      max-width: 500px;
-      margin-bottom: 10px;
+      .link-dark{
+        padding: 10px;
       }
-     .active{
-       font-weight: 100px;
-     }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid" >
           <a class="navbar-brand" href="/">MOVIE PLAZA</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,25 +43,27 @@
             </ul>
             <div id="search"> 
               <form class="d-flex">
-                  <i class="fas fa-camera"></i>
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <span style="color: #3D4C53;">
+                  <i class="fas fa-search fa-2x" style="margin-right: 10px"></i>
+                </span>
+                <input class="form-control me2" type="search" placeholder="Search" aria-label="Search" style="margin-right: 10px">
               </form>
             </div>
             <ul>
               <% if(!currentUser) { %>
               <ii>
-                <a class="link-light" href="/login" role="button">Log in</a>
+                <a class="link-dark" href="/login" role="button">Log in</a>
               </ii>
               <ii>
-                <a class="link-light" href="/signup" role="button">Sign up</a>
+                <a class="link-dark" href="/signup" role="button">Sign up</a>
               </ii>
             </ul>
              <% } else { %>
               <ii>
-                <a class="link-light" href="#" role="button">Log as <%= currentUser.username %></a>
+                <a class="link-dark" href="#" role="button">Log as <%= currentUser.username %></a>
               </ii>
               <ii>
-                <a class="link-light" href="/logout" role="button">Log out</a>
+                <a class="link-dark" href="/logout" role="button">Log out</a>
               </ii>
             </ul>
             <% } %>
