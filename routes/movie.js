@@ -2,6 +2,8 @@ var express     = require('express'),
     router      = express.Router(),
     multer      = require('multer'),
     path        = require('path'),
+    //call obj trough middleware
+    middleware  = require('../middleware'),
     storage     = multer.diskStorage({
                     destination: function(req, file, callback){
                         callback(null,'./public/uploads');
@@ -32,7 +34,7 @@ router.get('/', function(req, res){
     });
 });
 //multer middleware func
-router.post('/', isLoggedIn, upload.single('image'), function(req,res){
+router.post('/', middleware.isLoggedIn, upload.single('image'), function(req,res){
     // req.body.movies
     req.body.movies.image ='/uploads/'+ req.file.filename;//declare already
     // var name = req.body.name;
@@ -56,7 +58,7 @@ router.post('/', isLoggedIn, upload.single('image'), function(req,res){
     });
 });
 
-router.get('/new', isLoggedIn, function(req,res){
+router.get('/new', middleware.isLoggedIn, function(req,res){
     res.render('movies/new.ejs')
 });
 
@@ -73,7 +75,7 @@ router.get('/:id', function(req,res){
     });
 });
 
-//edit
+//showtime
 router.get('/:id/showtime', function(req, res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
@@ -85,7 +87,8 @@ router.get('/:id/showtime', function(req, res){
     });
 });
 
-router.get('/:id/edit', function(req,res){
+//edit
+router.get('/:id/edit', middleware.checkMovieOwner, function(req,res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
             console.log(err);
@@ -110,5 +113,15 @@ router.put('/:id', upload.single('image'), function(req, res){
     });
 });
 
+//delete
+router.delete('/:id', middleware.checkMovieOwner, function(req, res){
+    Movie.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect('/movie/');
+        }else{ 
+            res.redirect('/movie/');
+        }
+    });
+});
 
 module.exports = router;

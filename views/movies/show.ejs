@@ -28,17 +28,27 @@
                         <p class="card-text"><%= movies.desc %></p>
                         <p class="card-text" style="color: gray;">Submitted by <%= movies.author.username %></p>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<!-- edit need to have form for edit info but delete just click so it gonna be form to do this function in itself used in admin page -->
 
-<a class = "btn btn-outline-dark" style="margin-inline-start: 450px; background-color:#70B7BA;"href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
+<div>
+<!-- hide edit and delete button form who isnt author of this item check it is the user-->
+<% if(currentUser && movies.author.id.equals(currentUser._id)){ %>
+  <a class="btn btn-outline-dark" style="margin-inline-start: 350px; background-color: #F7E967;" href="/movie/<%= movies._id %>/edit">Edit Movie info</a>
+  <form id="delete-form" action="/movie/<%= movies._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-outline-dark" style="background-color:#F1433F;">Delete Movie info</button>
+  </form>  
+<% } %>
+<a class = "btn btn-outline-dark" style="margin-inline-start: 100px; background-color:#70B7BA;" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
 <% movies.comments.forEach(function(comment){ %>
-  <p style="margin-left: 200px; margin-top: 10px; color: whitesmoke;">
+  <p style="margin-left: 200px; margin-top: 20px; color: whitesmoke;">
     <strong><%= comment.author.username %></strong> - <%= comment.text %>
   </p>  
 <%});%>
+</div>
 
 <%- include('../partials/footer.ejs') %>

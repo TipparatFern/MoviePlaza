@@ -22,7 +22,7 @@ app.set('view egine','ejs');
 // app.use(express.static(__dirname + 'public'));
 app.use(methodOverride('_method'));
 app.use(express.static('./public'));
-seedDB();
+// seedDB();
 
 app.use(require('express-session')({
     secret: 'secret is always secret.',
