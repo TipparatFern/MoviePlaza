@@ -3,7 +3,7 @@ var express     = require('express'),
     Movie       = require('../models/movie'),
     Comment     = require('../models/comment');
 //comments
-//middle wear route function function
+//middleware route function function
 router.get('/new', isLoggedIn, function(req,res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
@@ -38,7 +38,7 @@ router.post('/', isLoggedIn, function(req, res){
 });
 
 
-//middle wear to check user is log in
+//middleware to check user is log in
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         //yes user is log in

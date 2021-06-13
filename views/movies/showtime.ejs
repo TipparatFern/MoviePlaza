@@ -1,6 +1,6 @@
-<%- include('partials/header.ejs') %>
+<%- include('../partials/header.ejs') %>
 <div class="mt-5" style="margin-left: 750px;">
-    <h1>Godziilla VS Kong</h1>
+    <h1 style="font-family: 'Roboto'; color: whitesmoke;"><%= movies.name %></h1>
 </div>
 <div class="album py-5  ">
     <div class="container">
@@ -8,19 +8,19 @@
             
             <div class="col-lg-4">
                 <div class="card shadow-sm">
-                    <img src="https://i1.wp.com/keeping-it-reel.com/wp-content/uploads/2021/03/godzvkongposter.jpeg?ssl=1" class="card-img-top" height="550 px">
+                    <img src="<%= movies.image %>" class="card-img-top" height="550 px">
                 </div>
             </div>
             <div class="col-lg-6" style="margin-left: 100px;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/odM92ap8_c0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
                 <div class="card mt-3 " style="max-width: 550px; max-height: 450px;">
                     <div class="card-header">
                       <ul class="nav nav-pills card-header-pills">
                         <li class="nav-item">
-                          <a class="nav-link" href="/description">Description</a>
+                          <a class="nav-link change" style="color:#70B7BA;" href="#>">Description</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/showtime">Showtime</a>
+                          <a class="nav-link change" style="color:#70B7BA;" href="/movie/<%= movies._id %>/showtime">Showtime</a>
                         </li>
                         <button class="btn btn-outline-primary dropdown-toggle" type="button" style="margin-left: 100px;">Choose Theater</button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -62,4 +62,4 @@
     </div>
 </div>
 
-<%- include('partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>

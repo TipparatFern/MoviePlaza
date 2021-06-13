@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
 <div class="mt-5" style="margin-left: 750px;">
-    <h1><%= movies.name %></h1>
+    <h1 style="font-family: 'Roboto'; color: whitesmoke;"><%= movies.name %></h1>
 </div>
 <div class="album py-5  ">
     <div class="container">
@@ -17,15 +17,16 @@
                     <div class="card-header">
                       <ul class="nav nav-pills card-header-pills">
                         <li class="nav-item">
-                          <a class="nav-link">Description</a>
+                          <a class="nav-link" style="color:#70B7BA;" href="#">Description</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/showtime">Showtime</a>
+                          <a class="nav-link" style="color:#70B7BA;" href="/movie/<%= movies._id %>/showtime">Showtime</a>
                         </li>
                       </ul>
                     </div>
                     <div class="card-body">
                         <p class="card-text"><%= movies.desc %></p>
+                        <p class="card-text" style="color: gray;">Submitted by <%= movies.author.username %></p>
                     </div>
                   </div>
             </div>
@@ -33,9 +34,9 @@
     </div>
 </div>
 
-<a class = "btn btn-primary" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
+<a class = "btn btn-outline-dark" style="margin-inline-start: 450px; background-color:#70B7BA;"href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
 <% movies.comments.forEach(function(comment){ %>
-  <p>
+  <p style="margin-left: 200px; margin-top: 10px; color: whitesmoke;">
     <strong><%= comment.author.username %></strong> - <%= comment.text %>
   </p>  
 <%});%>

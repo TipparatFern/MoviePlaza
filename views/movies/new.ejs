@@ -1,20 +1,32 @@
 <%- include('../partials/header.ejs') %>
 <div class="container">
-<form action='/movies' method='POST'> 
+<form action='/movie' method='POST' enctype="multipart/form-data" style="margin: 100px" > 
     <div class="mb-3">
-      <label class="form-label">Movie name</label>
-      <input type="text" class="form-control" name="name" placeholder="Name">
+      <label class="form-label" style="color: #F7E967;">Movie name</label>
+      <input type="text" class="form-control" name="movies[name]" placeholder="Name">
     </div>
     <div class="mb-3">
-      <label class="form-label">Image URL</label>
-      <input type="text" class="form-control" name="image" placeholder="URL">
+      <label class="form-label" style="color: #F7E967;">Image</label>
+      <input type="file" class="form-control" name="image" accept="image/*">
     </div>
     <div class="mb-3">
-        <label class="form-label">Description</label>
-        <input type="text" class="form-control" name="desc" placeholder="Descritption of this movie.">
-      </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="/movies">Go back</a>
+        <label class="form-label" style="color: #F7E967;">Description</label>
+        <input type="text" class="form-control" name="movies[desc]" placeholder="Descritption of this movie.">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" style="color: #F7E967;">Genre</label>
+      <input type="text" class="form-control" name="movies[genre]" placeholder="Genre">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" style="color: #F7E967;">Time</label>
+      <input type="text" class="form-control" name="movies[time]" placeholder="Time">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" style="color: #F7E967;">Rating</label>
+      <input type="text" class="form-control" name="movies[rating]" placeholder="Rating">
+    </div>
+    <button type="submit" class="btn btn-outline-dark" style="background-color:#70B7BA;">Submit</button>
+    <a href="/movie" class="link-light">Go back</a>
 </form>
 </div>
 <%- include('../partials/footer.ejs') %>

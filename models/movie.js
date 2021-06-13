@@ -7,10 +7,23 @@ var movieSchema = new mongoose.Schema({
     genre: String,
     time: String,
     rating: String,
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        },
+        username: String
+    },
     comments: [
         {//keep data comment schema in this
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Comment'
+        }
+    ],
+    tickets:[
+        {//keep data comment schema in this
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Ticket'
         }
     ]
     
