@@ -2,6 +2,9 @@ var express     = require('express'),
     router      = express.Router({mergeParams: true}),
     Movie       = require('../models/movie'),
     Comment     = require('../models/comment');
+    path        = require('path'),
+    //call obj trough middleware
+    middleware  = require('../middleware'),
 //comments
 //middleware route function function
 router.get('/new', isLoggedIn, function(req,res){

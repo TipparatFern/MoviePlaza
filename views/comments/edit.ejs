@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+<div class="container">
+    <!-- ?_method for method override -->
+<form action='/movie/<%= movies._id %>?_method=PUT' method='POST' enctype="multipart/form-data" style="margin: 100px" > 
+    <div class="mb-3">
+      <label class="form-label" style="color: #F7E967;">Movie name</label>
+      <!-- if user doesnt edit info value has same older info -->
+      <input type="text" class="form-control" name="movies[name]" placeholder="<%= movies.name %>" value="<%= movies.name %>">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" style="color: #F7E967;">Image</label>
+      <img src="<%= movies.image %>" width="100 px" height="150 px" style="margin: 20px">
+      <input type="file" class="form-control" name="image" accept="image/*">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" style="color: #F7E967;">Description</label>
+        <input type="text" class="form-control" name="movies[desc]" placeholder="<%= movies.desc %>" value="<%= movies.desc %>">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" style="color: #F7E967;">Genre</label>
+      <input type="text" class="form-control" name="movies[genre]" placeholder="<%= movies.genre %>" value="<%= movies.genre %>">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" style="color: #F7E967;">Time</label>
+      <input type="text" class="form-control" name="movies[time]" placeholder="<%= movies.time %>" value="<%= movies.time %>">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" style="color: #F7E967;">Rating</label>
+      <input type="text" class="form-control" name="movies[rating]" placeholder="<%= movies.rating %>" value="<%= movies.rating %>">
+    </div>
+    <button type="submit" class="btn btn-outline-dark" style="background-color:#70B7BA;">Submit</button>
+    <a href="/movie" class="link-light">Go back</a>
+</form>
+</div>
+<%- include('../partials/footer.ejs') %>
