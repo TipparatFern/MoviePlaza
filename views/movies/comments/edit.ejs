@@ -1,0 +1,13 @@
+<%- include('../partials/header.ejs') %>
+<div class="container">
+  <h1>Edit comment</h1>
+    <!-- ?_method for method override -->
+<form action='/movie/<%= movies._id %>/comments/<%= comments._id %>/edit?_method=PUT' method='POST' enctype="multipart/form-data" style="margin: 100px" > 
+  <div class="mb-3">
+    <label class="form-label" style="color: #F7E967;">Comment</label>
+    <input type="text" class="form-control" name="comments[text]" placeholder="<%= comments %>" value="<%= movies.rating %>">
+  </div>
+    <button type="submit" class="btn btn-outline-dark" style="background-color:#70B7BA;">Submit</button>
+    <a href="/movie" class="link-light">Go back</a>
+</form>
+</div>

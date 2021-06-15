@@ -1,26 +1,5 @@
 var express     = require('express'),
     router      = express.Router(),
-    multer      = require('multer'),
-    path        = require('path'),
-    //call obj trough middleware
-    middleware  = require('../middleware'),
-    // storage     = multer.diskStorage({
-    //                 destination: function(req, file, callback){
-    //                     callback(null,'./public/uploads');
-    //                 },
-    //                 filename: function(req, file, callback){
-    //                     // path for type of file
-    //                     callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    //                 }
-    //             }),
-    // imageFilter = function(req, file, callback){
-    //     //for check these (extension) are allowed image files 
-    //     if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)){
-    //         return callback(new Error('Only jpg, jpeg, png and gif Image files are allowed!'), false);
-    //     }
-    //     callback(null, true);
-    // },
-    // upload = multer({storage: storage, fileFilter: imageFilter}),
     Movie       = require('../models/movie');
 
 //movie add multer for upload image
