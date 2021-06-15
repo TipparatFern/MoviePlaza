@@ -10,7 +10,7 @@ router.get('/',function(req,res){
 
 //sign up and log in
 router.get('/signup',function(req,res){
-    res.render('signup.ejs');
+    res.render('user/signup.ejs');
 });
 
 router.post('/signup', function(req, res){
@@ -28,7 +28,7 @@ router.post('/signup', function(req, res){
 });
 
 router.get('/login',function(req,res){
-    res.render('login.ejs');
+    res.render('user/login.ejs');
 });
 
 router.post('/login', passport.authenticate('local' ,

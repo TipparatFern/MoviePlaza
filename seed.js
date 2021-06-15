@@ -2,14 +2,16 @@
 var mongoose = require('mongoose');
 var Movie = require('./models/movie');
 var Comment = require('./models/comment');
-var data = [
+var moviedata = [
     {
         name:'La La Land',
         image:'https://i.pinimg.com/originals/a3/fe/19/a3fe1953058d51294b8c061a9f76ead7.jpg', 
         desc:'La La Land is a 2016 American musical romantic comedy-drama film.',
         genre:'Drama/Romantic',
         time:'2 hrs 8 min',
-        rating:'8.0/10'
+        rating:'8.0/10',
+        releasedate:'12/1/2017' ,
+        canvas:'la-la-land-poster.jpg'
     },
     {
         name:'Godzilla VS Kong',
@@ -17,7 +19,9 @@ var data = [
         desc:'Godzilla vs. Kong is a 2021 American monster film directed by Adam Wingard.',
         genre:'Action/Sci-Fi',
         time:'1 hr 53 min',
-        rating:'6.5/10'
+        rating:'6.5/10',
+        releasedate:'25/3/2018' ,
+        canvas:'la-la-land-poster.jpg'
     },
     {
         name:'Ne Zha',
@@ -25,7 +29,9 @@ var data = [
         desc:'Ne Zha is a 2019 Chinese 3D computer animation fantasy adventure film.',
         genre:'Animation',
         time:'1 hr 50 min',
-        rating:'7.5/10'
+        rating:'7.5/10',
+        releasedate:'4/12/2019' ,
+        canvas:'la-la-land-poster.jpg'
     },
     {
         name:'Seobok',
@@ -33,7 +39,9 @@ var data = [
         desc:'Seo Bok is a 2021 South Korean sci-fi action film directed by Lee Yong-ju.',
         genre:'Action/Sci-Fi',
         time:'1 hr 54 min',
-        rating:'6.3/10'
+        rating:'6.3/10',
+        releasedate:'15/4/2021' ,
+        canvas:'la-la-land-poster.jpg'
     },   
     {
         name:'I still see you' ,
@@ -41,7 +49,9 @@ var data = [
         desc:'I Still See You is a 2018 American supernatural mystery thriller film.',
         genre:'Fantasy/Horror',
         time:'1 hr 34 min',
-        rating:'5.8/10'
+        rating:'5.8/10',
+        releasedate:'27/9/2018' ,
+        canvas:'la-la-land-poster.jpg'
     }   
 ];
 
@@ -52,7 +62,7 @@ function seedDB(){
             console.log(err);
         }
         console.log("Remove DB completed");
-        data.forEach(function(seed){
+        moviedata.forEach(function(seed){
             Movie.create(seed, function(err, movie){
                 if(err){
                     console.log(err);

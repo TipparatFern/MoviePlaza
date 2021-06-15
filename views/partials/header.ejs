@@ -10,26 +10,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" >
     <title>MOVIE_APP</title>
     <style>
-      .navbar{
-        background-color: #70B7BA;
-      }
+  
       .icon{
         padding: 10px;
       }
-      .link-dark{
+      .link-light{
         padding: 10px;
       }
       body{
-        background-color:   #3D4C53;
+        font-family: 'Roboto', sans-serif;
+        background-color:whitesmoke;
       }
       #delete-form{
         display: inline;
       }
-    
+     
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid" >
           <a class="navbar-brand" href="/">MOVIE PLAZA</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,27 +45,27 @@
             </ul>
             <div id="search"> 
               <form class="d-flex">
-                <span style="color: #3D4C53;">
+                <span style="color:#FFC90E;">
                   <i class="fas fa-search fa-2x" style="margin-right: 10px"></i>
                 </span>
-                <input class="form-control me2" type="search" placeholder="Search" aria-label="Search" style="margin-right: 10px">
+                <input class="form-control me-10" type="search" placeholder="Search" aria-label="Search">
               </form>
             </div>
             <ul>
               <% if(!currentUser) { %>
               <ii>
-                <a class="link-dark" href="/login" role="button">Log in</a>
+                <a class="link-light" href="/login" role="button">Log in</a>
               </ii>
               <ii>
-                <a class="link-dark" href="/signup" role="button">Sign up</a>
+                <a class="link-light" href="/signup" role="button">Sign up</a>
               </ii>
             </ul>
              <% } else { %>
               <ii>
-                <a class="link-dark" href="#" role="button">Log as <%= currentUser.username %></a>
+                <a class="link-light" href="#" role="button">Log as <%= currentUser.username %></a>
               </ii>
               <ii>
-                <a class="link-dark" href="/logout" role="button">Log out</a>
+                <a class="link-light" href="/logout" role="button">Log out</a>
               </ii>
             </ul>
             <% } %>

@@ -7,6 +7,8 @@ var movieSchema = new mongoose.Schema({
     genre: String,
     time: String,
     rating: String,
+    releasedate: String,
+    canvas: String,
     comments: [
         {//keep data comment schema in this
             type: mongoose.Schema.Types.ObjectId,

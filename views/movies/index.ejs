@@ -1,32 +1,37 @@
 <%- include('../partials/header.ejs') %>
 
- <div class="album py-5  ">
+<div class="album py-5 bg-light">
     <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+        <div class="row row-cols-5 row-cols-md-5 row-cols-sm-2  g-3">
             <% movies.forEach(function(movie){ %>
             <div class="col">
-                <div class="card shadow-sm">
-                    <img src="<%= movie.image %>" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title" ><%= movie.name %></h5>
-                            <div>
-                                <i class="fas fa-film icon" style="color: #F7E967;"></i><text style="font-family: 'Roboto'; "><%= movie.genre %></text>
-                            </div>
-                            <i class="far fa-clock icon" style="color: #F7E967;"></i><text style="font-family: 'Roboto'; "><%= movie.time %></text>
-                            <i class="fas fa-star icon" style="color: #F7E967"></i><text style="font-family: 'Roboto'; "><%= movie.rating %></text>
-                        <div class="d-flex justify-content-between align-items-center" style="padding: 10px;">
-                            <div class="btn-group">
-                                <a class="btn btn-outline-dark" style="background-color:#70B7BA;" href="/movie/<%= movie._id %>" role="button">View</a>
-                                <a class="btn btn-outline-dark" style="background-color:#70B7BA;" href="/movie/<%= movie._id %>/ticket" role="button">Ticket</a>
-                            </div>
+                 <div class="card shadow-sm" style="width: 18rem">
+                    <img src="<%= movie.image %>" class="card-img-top" height="350px">
+                     <div class="card-body">
+                        <h5 class="class-title" style="font-weight: bold;"><%= movie.name %></h5>
+                        <div>
+                            <i class="fas fa-film icon" style="color: #FFC90E;"></i><text><%= movie.genre %></text>
                         </div>
-                        <!-- <div> <a href="#" role="button"><i class="far fa-heart" style="color:  #F1433F;"></i></a></div> -->
+                         <div>
+                            <i class="far fa-clock icon" style="color: #FFC90E;"></i><text><%= movie.time %></text>
+                            <i class="fas fa-star icon" style="color: #FFC90E;"></i><text><%= movie.rating %></text>
+                        </div>
+                        <div class="btn-group mt-3">
+                            <a class="btn btn-outline-light" style="background-color: #1b64d0;" href="/movie/<%= movie._id %>" role="button">View</a>
+                            <a class="btn btn-outline-light" style="background-color: #07a461;" href="/movie/<%= movie._id %>/ticket" role="button">Ticket</a>
+                        </div>
                     </div>
-                </div>
+                </div>               
             </div>
-            <% }); %>
+            <% }); %> 
+
         </div>
     </div>
 </div>
+
+
+
+          
+<!-- <div> <a href="#" role="button"><i class="far fa-heart" style="color:  #F1433F;"></i></a></div> -->
 
 <%- include('../partials/footer.ejs') %>
