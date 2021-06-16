@@ -5,12 +5,8 @@ var theaterSchema = new mongoose.Schema({
     name: String,
     branch: String,
     desc: String,
-    // showtime: Time,
-    seat: String,
-    count_seat: { 
-        type: Number, 
-        default: 0
-    },
+    date: Date,
+    showtime: Number,
     tickets:[
         {//keep data comment schema in this
             type: mongoose.Schema.Types.ObjectId,

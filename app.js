@@ -49,7 +49,7 @@ app.use('/', indexRoutes);
 app.use('/movie', movieRoutes);
 app.use('/movie/:id/comments', commentRoutes);
 //edit
-app.use('/movie/:id/tickets', ticketRoutes);
+app.use('/movie/:id/ticket', ticketRoutes);
 app.use('/theater', theaterRoutes);
 
 

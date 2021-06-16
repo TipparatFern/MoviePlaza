@@ -1,20 +1,9 @@
 <%- include('../partials/header.ejs') %>
 
-<!-- <div class="mt-5" style="margin-left: 100px;">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-           <div class="col-md-4">
-                <h1>theater.name</h1>
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a class="btn btn-outline-primary" href="/movie/<%= movie._id %>/ticket" role="button">Ticket</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
+<%= theater.name %>
+<%= theater.branch %>
+<%= theater.desc %>
+<a class="btn btn-outline-primary" href="/movie/<%= movie._id %>/ticket" role="button">Ticket</a>
+            
 
 <%- include('../partials/footer.ejs') %>

@@ -55,6 +55,29 @@ var moviedata = [
     }   
 ];
 
+var theaterdata = [
+    {
+        name:'Theater1',
+        branch:'Bangkok',
+        desc:'An new theater that could give you an new experience of watching movie you never have before'
+    },
+    {
+        name:'Theater2',
+        branch:'Bangkok',
+        desc:''
+    },
+    {
+        name:'Theater3',
+        branch:'Konkean',
+        desc:''
+    },
+    {
+        name:'Theater4',
+        branch:'Konkean',
+        desc:''
+    }
+];
+
 function seedDB(){
     Movie.remove({}, function(err){
         if(err){
@@ -63,6 +86,21 @@ function seedDB(){
         console.log("Remove DB completed");
         moviedata.forEach(function(seed){
             Movie.create(seed, function(err, movie){
+                if(err){
+                    console.log(err);
+                }else{
+                    console.log('New data added');
+                }
+            });
+        });
+    });
+    Theater.remove({}, function(err){
+        if(err){
+            console.log(err);
+        }
+        console.log("Remove DB completed");
+        theaterdata.forEach(function(seed){
+            Theater.create(seed, function(err, movie){
                 if(err){
                     console.log(err);
                 }else{

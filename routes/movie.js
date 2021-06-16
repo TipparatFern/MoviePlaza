@@ -59,29 +59,7 @@ router.get('/:id/showtime', function(req, res){
         }
     });
 });
-//populate for access another schema info
-router.get('/:id/ticket', function(req, res){
-    Movie.findById(req.params.id).populate('tickets').populate('theater').populate('user').exec(function(err, foundMovie){
-        if(err){
-            console.log(err);
-        } else{
-            console.log(foundMovie);
-            res.render('ticket.ejs',{movies: foundMovie});
-        }
-    });
-});
 
-router.post('/:id/ticket', function(req, res){
-    let query = {};
-    var newTheater = new Theater({name: req.body.name});
-    Theater.create(newTheater, function(err, foundTheater){
-        if(err){
-            console.log(err);
-        }else{
-            res.redirect('/movie/');
-        }
-    })
-});
 
 
 module.exports = router;

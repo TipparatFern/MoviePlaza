@@ -17,7 +17,7 @@ router.post('/',function(req, res){
     var name = req.body.name;
     var branch = req.body.branch;
     var desc = req.body.desc;
-    var seat = req.body.seat;
+    // var seat = req.body.seat;
     var count_seat = req.body.count_seat;
     var newTheater ={name: name, branch: branch, desc: desc, seat: seat, count_seat: count_seat}
     Theater.create(req.body.theater, function(err, newlyCreated){
