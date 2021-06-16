@@ -1,6 +1,7 @@
 var express     = require('express'),
     router      = express.Router(),
     Movie       = require('../models/movie');
+    Theater     = require('../models/theater');
 
 //movie add multer for upload image
 router.get('/', function(req, res){
@@ -14,15 +15,15 @@ router.get('/', function(req, res){
 });
 //multer middleware func
 router.post('/', function(req,res){
-    var name = req.body.name;
+    var title = req.body.title;
     var image = req.body.image;
     var desc = req.body.desc;
     var genre = req.body.genre;
-    var time = req.body.time;
+    var runtime = req.body.runtime;
     var rating = req.body.rating;
     var releasedate = req.body.releasedate;
     var canvas = req.body.canvas
-    var newMovie = {name: name, image: image, desc: desc, genre: genre, time: time, rating: rating, releasedate: releasedate, canvas: canvas};
+    var newMovie = {title: title, image: image, desc: desc, genre: genre, runtime: runtime, rating: rating, releasedate: releasedate, canvas: canvas};
     Movie.create(req.body.movies, function(err, newlyCreated){
         if(err){
             console.log(err);
@@ -58,9 +59,9 @@ router.get('/:id/showtime', function(req, res){
         }
     });
 });
-
+//populate for access another schema info
 router.get('/:id/ticket', function(req, res){
-    Movie.findById(req.params.id, function(err, foundMovie){
+    Movie.findById(req.params.id).populate('tickets').populate('theater').populate('user').exec(function(err, foundMovie){
         if(err){
             console.log(err);
         } else{
@@ -69,5 +70,18 @@ router.get('/:id/ticket', function(req, res){
         }
     });
 });
+
+router.post('/:id/ticket', function(req, res){
+    let query = {};
+    var newTheater = new Theater({name: req.body.name});
+    Theater.create(newTheater, function(err, foundTheater){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect('/movie/');
+        }
+    })
+});
+
 
 module.exports = router;

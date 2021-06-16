@@ -1,23 +1,26 @@
 <%- include('../partials/header.ejs') %>
 <!-- canvas -->
 <div>
-  <img src="<%= movies.canvas %> "height="350 px">
-  <h2 style="color:#07a461; font-size: 50px; font-weight: bold;" class="ms-5">Description</h2>
-  <p class="card-text ms-5"><%= movies.desc %></p>
+  <img src="<%= movies.canvas %> " width="1920px" height="350px" style="filter: opacity(50%)" alt="canvas">
+  <div class="top-left"><%= movies.name %></div>
+  <div class="container">
+    <div style="color:#07a461; font-size: 50px; font-weight: bold;">Description</div>
+    <div><%= movies.desc %></div>
+  </div>
 </div>
-<div class="mt-5" style="text-align: center; font-weight: 400px;">
-  <h1><%= movies.name %></h1>
-</div>
-                                        
+
+
+                                      
           
 <!-- edit need to have form for edit info but delete just click so it gonna be form to do this function in itself used in admin page -->
 <!-- hide edit and delete button form who isnt author of this item check it is the user-->
 <div>
 <a class="nav-link ms-5" style="color: #07a461; font-family:'Poppin', sans-serif; font-size: 50px;" href="/movie/<%= movies._id %>/showtime">choose showtime</a>
 </div>
+<!-- /movie/<%= movies._id %>/showtime  -->
 
 <div>
-<a class = "btn btn-outline-dark" style="margin-inline-start: 100px; background-color: #1b64d0;" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
+<a class = "btn btn-outline-light" style="margin-inline-start: 100px; background-color: #1b64d0;" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
 <% movies.comments.forEach(function(comment){ %>
   <p style="margin-left: 200px; margin-top: 20px; color: whitesmoke;">
     <strong><%= comment.author.username %></strong> - <%= comment.text %>

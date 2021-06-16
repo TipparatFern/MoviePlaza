@@ -3,7 +3,7 @@ var express         = require('express'),
     bodyParser      = require('body-parser'),
     mongoose        = require('mongoose'),
     User            = require('./models/user'),
-    // Theater         = require('./models/theater'),
+    Theater         = require('./models/theater'),
     methodOverride  = require('method-override'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local'),
@@ -14,7 +14,7 @@ var movieRoutes     = require ('./routes/movie'),
     indexRoutes     = require ('./routes/index');
     //edit this
 var ticketRoutes    = require('./routes/ticket');
-// var theaterRoutes   = require ('./routes/theater');
+var theaterRoutes   = require ('./routes/theater');
 
 mongoose.connect('mongodb://localhost/movieplaza');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -50,10 +50,8 @@ app.use('/movie', movieRoutes);
 app.use('/movie/:id/comments', commentRoutes);
 //edit
 app.use('/movie/:id/tickets', ticketRoutes);
-// app.use('/theater', theaterRoutes);
-app.get('/theater',function(req,res){
-    res.render('theater/theater.ejs');
-});
+app.use('/theater', theaterRoutes);
+
 
 
 app.listen('3000',function(){

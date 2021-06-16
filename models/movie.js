@@ -1,14 +1,15 @@
 var mongoose = require('mongoose');
 
 var movieSchema = new mongoose.Schema({
-    name: String,
+    title: String,
     image: String,
     desc: String,
     genre: String,
-    time: String,
+    runtime: String,
     rating: String,
     releasedate: String,
     canvas: String,
+    likes: {type: Number, default: 0 },
     comments: [
         {//keep data comment schema in this
             type: mongoose.Schema.Types.ObjectId,
