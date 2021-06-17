@@ -11,13 +11,13 @@ var movieSchema = new mongoose.Schema({
     canvas: String,
     likes: {type: Number, default: 0 },
     comments: [
-        {//keep data comment schema in this
+        {//comment use this schema info
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Comment'
         }
     ],
     tickets:[
-        {//keep data comment schema in this
+        {//
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Ticket'
         }

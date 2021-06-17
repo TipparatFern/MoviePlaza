@@ -2,18 +2,20 @@
 var mongoose = require('mongoose');
 
 var theaterSchema = new mongoose.Schema({
-    name: String,
     branch: String,
+    name: String,
     desc: String,
-    date: Date,
+    year: Number,
+    month: Number,
+    day: Number,
     showtime: Number,
     tickets:[
-        {//keep data comment schema in this
+        {//keep data in this
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Ticket'
         }
     ],
-    movie:{
+    movie:{//accept movie info
         id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Movie'

@@ -23,8 +23,9 @@ var ticketSchema = new mongoose.Schema({
     theater: {
         id:{type: mongoose.Schema.Types.ObjectId,
             ref: 'Theater'
-
-        }
+        },
+        name: String,
+        branch: String
     }
  
 });

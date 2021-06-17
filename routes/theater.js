@@ -8,18 +8,19 @@ router.get('/', function(req, res){
         if(err){
             console.log(err);
         } else{
-            res.render('theater/theater.ejs',{theater: allTheater});
+            res.render('theater/index.ejs',{theater: allTheater});
         }
     });
 });
 
-router.post('/',function(req, res){
-    var name = req.body.name;
+router.post('/', function(req, res){
     var branch = req.body.branch;
+    var name = req.body.name;
     var desc = req.body.desc;
-    // var seat = req.body.seat;
-    var count_seat = req.body.count_seat;
-    var newTheater ={name: name, branch: branch, desc: desc, seat: seat, count_seat: count_seat}
+    var day = req.body.day;
+    var month =req.body.month;
+    var year = req.body.year;
+    var newTheater ={branch: branch, name: name, desc: desc, year: year, month: month, day: day}
     Theater.create(req.body.theater, function(err, newlyCreated){
         if(err){
             console.log(err);
