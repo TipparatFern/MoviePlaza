@@ -9,6 +9,7 @@ var movieSchema = new mongoose.Schema({
     rating: String,
     releasedate: String,
     canvas: String,
+    trailerlink: String,
     likes: {type: Number, default: 0 },
     comments: [
         {//comment use this schema info

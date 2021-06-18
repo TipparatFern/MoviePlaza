@@ -1,11 +1,19 @@
 var express     = require('express'),
     router      = express.Router(),
     User        = require('../models/user'),
+    Movie       = require('../models/movie'),
     passport    = require('passport');
 
 
 router.get('/',function(req,res){
-    res.render('home.ejs');
+    Movie.find({}, function(err, allMovies){
+        if(err){
+            console.log(err);
+        } else{
+            res.render('home.ejs',{movies: allMovies});
+        }
+    });
+    
 });
 
 //sign up and log in

@@ -2,26 +2,14 @@
 var mongoose = require('mongoose');
 
 var theaterSchema = new mongoose.Schema({
+    provincal: String,
     branch: String,
-    name: String,
+    image: String,
     desc: String,
-    year: Number,
-    month: Number,
-    day: Number,
-    showtime: Number,
-    tickets:[
-        {//keep data in this
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Ticket'
-        }
-    ],
-    movie:{//accept movie info
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Movie'
-        },
-        name: String
-    }
+    movie:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie'
+    },
 });
 
 module.exports = mongoose.model('Theater',theaterSchema);

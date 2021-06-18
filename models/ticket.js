@@ -2,31 +2,19 @@
 var mongoose = require('mongoose');
 
 var ticketSchema = new mongoose.Schema({
-    // date: {
-    //     type: Number,
-    //     default: Date.now
-    // },
-    author: {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
-        },
-        username: String
+    ticketer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'    
     },
     movie:{
-        id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Movie'
-        },
-        name: String
     },
     theater: {
-        id:{type: mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Theater'
-        },
-        name: String,
-        branch: String
-    }
+        
+    },
  
 });
 

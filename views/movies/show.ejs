@@ -1,31 +1,38 @@
 <%- include('../partials/header.ejs') %>
 <!-- canvas -->
 <div>
-  <img src="<%= movies.canvas %> " width="1920px" height="350px" style="filter: opacity(50%)" alt="canvas">
-  <div class="top-left"><%= movies.name %></div>
-  <div class="container">
-    <div style="color:#07a461; font-size: 50px; font-weight: bold;">Description</div>
-    <div><%= movies.desc %></div>
+  <img src="<%= movies.canvas %> " width="1920px" height="350px" style="filter: opacity(50%)">
+  <div class="top-left">
+  <div style="color:white; font-size: 100px;""><%= movies.title %></div>
+  <div style="color:#07a461; font-size: 50px; font-weight: bold;">Description</div>
+  <div><h5 style="color:white;"><%= movies.desc %></h5></div>
+  <div style="color: gray;">release date: <%= movies.releasedate %></div>
+  <div>
+    <i class="fas fa-film icon" style="color: #FFC90E;"></i><text style="color:white;"><%= movies.genre %></text>
+  </div>
+ <div>
+    <i class="far fa-clock icon" style="color: #FFC90E;"></i><text style="color:white;"><%= movies.runtime %></text>
+    <i class="fas fa-star icon" style="color: #FFC90E;"></i><text style="color:white;"><%= movies.rating %></text>
+  </div>                   
   </div>
 </div>
 
-
-                                      
-          
-<!-- edit need to have form for edit info but delete just click so it gonna be form to do this function in itself used in admin page -->
-<!-- hide edit and delete button form who isnt author of this item check it is the user-->
+<h1 style="color: white;"><%= movies.title %></h1>        
 <div>
-<a class="nav-link ms-5" style="color: #07a461; font-family:'Poppin', sans-serif; font-size: 50px;" href="/movie/<%= movies._id %>/showtime">choose showtime</a>
+  <a class="nav-link ms-5" style="color: whitesmoke; font-family:'Poppin', sans-serif; font-size: 50px;" href="/movie/<%= movies._id %>/showtime">choose showtime</a>
 </div>
-<!-- /movie/<%= movies._id %>/showtime  -->
-
-<div>
+           
 <a class = "btn btn-outline-light" style="margin-inline-start: 100px; background-color: #1b64d0;" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
 <% movies.comments.forEach(function(comment){ %>
   <p style="margin-left: 200px; margin-top: 20px; color: whitesmoke;">
     <strong><%= comment.author.username %></strong> - <%= comment.text %>
   </p>  
 <%});%>
-</div>
+</div>        
+
+                                   
+          
+<!-- edit need to have form for edit info but delete just click so it gonna be form to do this function in itself used in admin page -->
+<!-- hide edit and delete button form who isnt author of this item check it is the user-->
 
 <%- include('../partials/footer.ejs') %>
