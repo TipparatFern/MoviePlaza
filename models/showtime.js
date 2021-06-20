@@ -2,11 +2,14 @@ var mongoose = require('mongoose');
 
 var showtimeSchema = new mongoose.Schema({
     showtime: Number,
+    date: {
+        type:Date,
+        default: Date.now
+    },
     theater:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'Theater'
     },
-    showtime: Date,
     movie:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Movie'

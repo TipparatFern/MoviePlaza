@@ -16,13 +16,22 @@
   </div>                   
   </div>
 </div>
-
-<h1 style="color: white;"><%= movies.title %></h1>        
-<div>
+ 
+<form>
+ 
+</form>
+  
+<form style="margin-left: 100px;">
   <a class="nav-link ms-5" style="color: whitesmoke; font-family:'Poppin', sans-serif; font-size: 50px;" href="/movie/<%= movies._id %>/showtime">choose showtime</a>
-</div>
-           
-<a class = "btn btn-outline-light" style="margin-inline-start: 100px; background-color: #1b64d0;" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
+  <select>
+    <option value="rama3">Central Rama3</option>
+    <option value="chiangmai">Central Festival Chiangmai</option>
+    <option value="ubon">Central Ubonratchatanee</option>
+    <option value="samui">Central Festival Samui</option>
+  </select>
+</form>
+  
+<a class = "btn btn-outline-light be-3" style="margin-inline-start: 100px; background-color: #1b64d0;" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
 <% movies.comments.forEach(function(comment){ %>
   <p style="margin-left: 200px; margin-top: 20px; color: whitesmoke;">
     <strong><%= comment.author.username %></strong> - <%= comment.text %>

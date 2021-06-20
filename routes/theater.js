@@ -19,10 +19,8 @@ router.post('/', function(req, res){
     var branch = req.body.branch;
     var image = req.body.image;
     var desc = req.body.desc;
-    var year = req.body.year;
-    var month =req.body.month;
-    var day = req.body.day;
-    var newTheater ={ provincal: provincal, branch: branch, image: image, desc: desc, year: year, month: month, day: day};
+    var theater_no = req.body.theater_no;
+    var newTheater ={ provincal: provincal, branch: branch, image: image, desc: desc, theater_no: theater_no};
     Theater.create(req.body.theater, function(err, newlyCreated){
         if(err){
             console.log(err);
@@ -35,15 +33,43 @@ router.post('/', function(req, res){
 
 router.get('/:id', function(req,res){
     //ref or join have to reveal it , follow var that we want to reveal, execute
-    Theater.findById(req.params.id).populate('movie').exec(function(err, foundTheater){
+    Theater.findById(req.params.id, function(err, foundTheater){
         if(err){
             console.log(err);
         }else {
+            console.log(foundTheater);
             //write {variables in this file: found in varaibles that ref from presently file}
-            res.render('theater/show.ejs', {theater: foundTheater});
+            res.render('theater/showtime.ejs', {theater: foundTheater});
         }
     });
 });
+
+router.get('/:id/seat', function(req,res){
+    //ref or join have to reveal it , follow var that we want to reveal, execute
+    Theater.findById(req.params.id, function(err, foundTheater){
+        if(err){
+            console.log(err);
+        }else {
+            console.log(foundTheater);
+            //write {variables in this file: found in varaibles that ref from presently file}
+            res.render('theater/seat.ejs', {theater: foundTheater});
+        }
+    });
+});
+
+router.get('/:id/purchase', function(req,res){
+    //ref or join have to reveal it , follow var that we want to reveal, execute
+    Theater.findById(req.params.id, function(err, foundTheater){
+        if(err){
+            console.log(err);
+        }else {
+            console.log(foundTheater);
+            //write {variables in this file: found in varaibles that ref from presently file}
+            res.render('theater/purchase.ejs', {theater: foundTheater});
+        }
+    });
+});
+
 
 
 

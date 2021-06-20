@@ -6,10 +6,10 @@ var theaterSchema = new mongoose.Schema({
     branch: String,
     image: String,
     desc: String,
-    movie:{
+    theater_no:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Movie'
-    },
+        ref: 'Branch'
+    }
 });
 
 module.exports = mongoose.model('Theater',theaterSchema);

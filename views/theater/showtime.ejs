@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs') %>
+
+
+<div class="card">
+  <img src="" class="card-img-top">
+  <div class="card-body">
+    <h5 style="color:green;" class="card-title"><%= theater.theater_no %></h5>
+    <p class="card-text">
+    moviename
+    </p>
+    <!-- post put showtime to next page -->
+    <a class="btn btn-outline-dark" href="/theater/<%= theater._id %>/seat" role="button">showtime</a>
+  </div>
+</div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
