@@ -1,7 +1,8 @@
 var express     = require('express'),
     router      = express.Router(),
-    Movie       = require('../models/movie');
-    
+    Movie       = require('../models/movie'),
+    Theater     = require('../models/theater');
+
 //movie add multer for upload image
 router.get('/', function(req, res){
     Movie.find({}, function(err, allMovies){
@@ -37,7 +38,7 @@ router.post('/', function(req,res){
 //show
 router.get('/:id', function(req,res){
     //ref or join have to reveal it , follow var that we want to reveal, execute
-    Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
+    Movie.findById(req.params.id).populate('comments').populate('theater').exec(function(err, foundMovie){
         if(err){
             console.log(err);
         }else {

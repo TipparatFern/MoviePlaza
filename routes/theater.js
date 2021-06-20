@@ -57,6 +57,7 @@ router.get('/:id/seat', function(req,res){
     });
 });
 
+
 router.get('/:id/purchase', function(req,res){
     //ref or join have to reveal it , follow var that we want to reveal, execute
     Theater.findById(req.params.id, function(err, foundTheater){

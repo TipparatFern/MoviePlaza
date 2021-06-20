@@ -6,6 +6,16 @@ var theaterSchema = new mongoose.Schema({
     branch: String,
     image: String,
     desc: String,
+    theater:[{
+        type: String
+    }],
+    seat:[{
+        type:String
+    }],
+    movie:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie'
+    },
     theater_no:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Branch'
