@@ -21,7 +21,7 @@ router.post('/', function(req, res){
     var desc = req.body.desc;
     var theater_no = req.body.theater_no;
     var newTheater ={ provincal: provincal, branch: branch, image: image, desc: desc, theater_no: theater_no};
-    Theater.create(req.body.theater, function(err, newlyCreated){
+    Theater.create(newTheater, function(err, newlyCreated){
         if(err){
             console.log(err);
         } else{
@@ -43,6 +43,8 @@ router.get('/:id', function(req,res){
         }
     });
 });
+
+
 
 router.get('/:id/seat', function(req,res){
     //ref or join have to reveal it , follow var that we want to reveal, execute

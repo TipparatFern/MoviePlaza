@@ -6,7 +6,7 @@ var theaterSchema = new mongoose.Schema({
     branch: String,
     image: String,
     desc: String,
-    theater:[{
+    theater_no:[{
         type: String
     }],
     seat:[{
@@ -16,10 +16,6 @@ var theaterSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Movie'
     },
-    theater_no:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Branch'
-    }
 });
 
 module.exports = mongoose.model('Theater',theaterSchema);

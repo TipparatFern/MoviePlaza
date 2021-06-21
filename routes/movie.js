@@ -24,7 +24,7 @@ router.post('/', function(req,res){
     var releasedate = req.body.releasedate;
     var canvas = req.body.canvas;
     var newMovie = {title: title, image: image, desc: desc, genre: genre, runtime: runtime, rating: rating, releasedate: releasedate, canvas: canvas};
-    Movie.create(req.body.movies, function(err, newlyCreated){
+    Movie.create(newMovie, function(err, newlyCreated){
         if(err){
             console.log(err);
         } else {
@@ -44,6 +44,28 @@ router.get('/:id', function(req,res){
         }else {
             //write {variables in this file: found in varaibles that ref from presently file}
             res.render('movies/show.ejs', {movies: foundMovie});
+        }
+    });
+});
+
+router.post('/', function(req, res){
+    Movie.findById(req.params.id, function(err, foundMovie){
+        if(err){
+            console.log(err);
+            res.redirect('/movie');
+        }else {
+            Theater.create(req.body.theater, function(err, theater){
+                if(err){
+                    console.log(err);
+                } else{
+                    //add comment. access user id ,username for comment
+                    theater.branch = req.body.branch;
+                    theater.save();
+                    foundMovie.theater.push(theater);
+                    foundMovie.save();
+                    res.redirect('/movie/'+ foundMovie._id);
+                }
+            });
         }
     });
 });

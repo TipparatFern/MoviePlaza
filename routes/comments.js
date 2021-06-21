@@ -1,3 +1,5 @@
+const theater = require('../models/theater');
+
 var express     = require('express'),
     router      = express.Router({mergeParams: true}),
     Movie       = require('../models/movie'),
@@ -39,6 +41,7 @@ router.post('/', isLoggedIn, function(req, res){
         }
     });
 });
+
 
 
 //middleware to check user is log in

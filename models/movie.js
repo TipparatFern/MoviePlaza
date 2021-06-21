@@ -18,10 +18,16 @@ var movieSchema = new mongoose.Schema({
         }
     ],
     tickets:[
-        {//
+        {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Ticket'
         }
+    ],
+    theater:[
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Theater'
+    }
     ]
     
 });
