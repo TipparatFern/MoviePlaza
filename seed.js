@@ -99,6 +99,13 @@ function seedDB(){
                     console.log(err);
                 }else{
                     console.log('New data added');
+                    Theater.find({theater_no :movie},function(err, movie){
+                        if(err){
+                            console.log(err);
+                        } else{
+                            console.log('')
+                        }
+                    });
                 }
             });
         });

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var showtimeSchema = new mongoose.Schema({
-    showtime: Number,
+    showtime: Date, //only time doesnt use date
     date: {
         type:Date,
         default: Date.now

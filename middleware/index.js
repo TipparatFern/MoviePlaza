@@ -3,15 +3,15 @@ var Movie = require('../models/movie');
 
 var middlewareObj = {};
 
-middlewareObj.checkMovieOwner = function(req ,res, next){
+middlewareObj.checkCommentOwner = function(req ,res, next){
     //user is authen or not
     if(req.isAuthenticated()){
         // same id currently user
-        Movie.findById(req.params.id, function(err, foundMovie){
+        Movie.findById(req.params.id, function(err, foundComment){
             if(err){
                 console.log(err);
             } else {//mongoose function check info is same
-                if(foundMovie.author.id.equals(req.user._id)){
+                if(foundComment.author.id.equals(req.user._id)){
                     next();
                 } else {
                     res.redirect('back');

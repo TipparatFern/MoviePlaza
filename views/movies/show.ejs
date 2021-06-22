@@ -18,14 +18,22 @@
 </div>
  
 <a class="nav-link ms-5" style="color: whitesmoke; font-family:'Poppin', sans-serif; font-size: 50px;" href="/movie/<%= movies._id %>/showtime">choose showtime</a>
+<!-- comment -->
+<div class="container">
+  <form action='/movie/<%= movies._id %>/comments' method='POST'>
+      <div class="mb-3">
+        <label class="form-label" style="color: white;">Comment</label>
+        <input type="text" class="form-control" name="comment[text]" placeholder="Comment">
+      </div>
+      <button type="submit" class="btn btn-outline-light">Submit</button>
+  </form>
+</div>
 
     <% movies.theater.forEach(function(theater){ %>
     <div style="color: white;"><% theater.branch %></div>
     <% }); %>
-          
+    
 
-  
-<a class = "btn btn-outline-light be-3" style="margin-inline-start: 100px; background-color: #1b64d0;" href='/movie/<%= movies._id %>/comments/new'>Add new comment</a>
 <% movies.comments.forEach(function(comment){ %>
   <p style="margin-left: 200px; margin-top: 20px; color: whitesmoke;">
     <strong><%= comment.author.username %></strong> - <%= comment.text %>

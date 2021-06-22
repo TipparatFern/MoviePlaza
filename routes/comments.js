@@ -2,6 +2,7 @@ const theater = require('../models/theater');
 
 var express     = require('express'),
     router      = express.Router({mergeParams: true}),
+    middleware  = require('../middleware'),
     Movie       = require('../models/movie'),
     Comment     = require('../models/comment');
     path        = require('path'),
@@ -9,7 +10,7 @@ var express     = require('express'),
     middleware  = require('../middleware'),
 //comments
 //middleware route function function
-router.get('/new', isLoggedIn, function(req,res){
+router.get('/new', middleware.isLoggedIn, function(req,res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
             console.log(err);
@@ -19,7 +20,7 @@ router.get('/new', isLoggedIn, function(req,res){
     });
 });
 
-router.post('/', isLoggedIn, function(req, res){
+router.post('/', middleware.isLoggedIn, function(req, res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
             console.log(err);
@@ -43,14 +44,18 @@ router.post('/', isLoggedIn, function(req, res){
 });
 
 
+router.get('/:comment_id/edit', middleware.checkCommentOwner, function(req, res){
+    Comment.findById(req.paramas.comment_id, function(err, foundComment){
+        if(err){
+            res.redirect('back');
+        } else{
+            res.redirect('comments/edit.ejs',{movie_id: req.params.id, comment: foundComment});
+        }
+    });
+});
 
-//middleware to check user is log in
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        //yes user is log in
-        return next();
-    }// no
-    res.redirect('/login');
-}
+router.get('/:comment_id', middleware.checkCommentOwner, function(req, res){
+    Comment.findByIdAndUpdate()
+})
 
 module.exports = router;
