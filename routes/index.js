@@ -18,7 +18,7 @@ router.get('/',function(req,res){
 
 //sign up and log in
 router.get('/signup',function(req,res){
-    res.render('user/signup.ejs');
+    res.render('user/signup/signup.ejs');
 });
 
 router.post('/signup', function(req, res){
