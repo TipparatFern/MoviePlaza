@@ -6,22 +6,22 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-lg-2 row-cols-md-1 row-cols-sm-1  g-3">
                 <% theater.forEach(function(theater){ %>
-                <div class="col">
-                     <div class="card shadow-sm" style="width: 50rem; height: 20rem;">
-                         <div >
-                            <img src="<%= theater.image %>" class="card-img-top" height="320rem" style="filter: opacity(50%);" alt="<%= theater.image %>"> 
-                            <div class="top-left">
-                                <h3 class="class-title" style="font-weight: bold;"><%= theater.branch %></h3>
-                                <h5 class="class-title" style="font-weight: bold;"><%= theater.provincal %></h5>
-                                <div class="btn-group mt-3">
-                                    <a class="btn btn-outline-dark" href="/theater/<%= theater._id %>" role="button">View</a>
+                <a  href="/theater/<%= theater._id %>" role="button">
+                    <div class="col">
+                        <div class="card shadow-sm" style="width: 50rem; height: 20rem;">
+                            <div>
+                                <img src="<%= theater.image %>" class="card-img-top" height="320rem" style="filter: contrast(80%);"alt="<%= theater.image %>"> 
+                                <div class="top-left">
+                                    <div class="border-text">
+                                        <h3 class="class-title"><%= theater.branch %></h3>
+                                        <h5 class="class-title"><%= theater.provincal %></h5>
+                                    </div>   
                                 </div>
                             </div>
-                        </div>
-                    </div>               
-                </div>
+                        </div>               
+                    </div>
+                </a>
                 <% }); %> 
-    
             </div>
         </div>
     </div> 

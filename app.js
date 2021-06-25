@@ -20,7 +20,7 @@ app.set('view egine','ejs');
 // app.use(express.static(__dirname + 'public'));
 app.use(methodOverride('_method'));
 app.use(express.static('./public'));
-seedDB();
+// seedDB();
 
 app.use(require('express-session')({
     secret: 'secret is always secret.',
@@ -51,6 +51,6 @@ app.use('/theater', theaterRoutes);
 
 
 
-app.listen('2002',function(){
+app.listen('9090',function(){
     console.log("Movie Plaza is running");
 });

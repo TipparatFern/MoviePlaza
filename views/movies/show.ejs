@@ -10,7 +10,7 @@
   <div>
     <i class="fas fa-film icon" style="color: #FFC90E;"></i><text style="color:white;"><%= movies.genre %></text>
   </div>
- <div>
+  <div>
     <i class="far fa-clock icon" style="color: #FFC90E;"></i><text style="color:white;"><%= movies.runtime %></text>
     <i class="fas fa-star icon" style="color: #FFC90E;"></i><text style="color:white;"><%= movies.rating %></text>
   </div>                   
@@ -29,19 +29,18 @@
   </form>
 </div>
 
-    <% movies.theater.forEach(function(theater){ %>
-    <div style="color: white;"><% theater.branch %></div>
-    <% }); %>
-    
+
 
 <% movies.comments.forEach(function(comment){ %>
   <p style="margin-left: 200px; margin-top: 20px; color: whitesmoke;">
     <strong><%= comment.author.username %></strong> - <%= comment.text %>
   </p>  
 <%});%>
-</div>        
-
-                                   
+      
+<!-- for showing theater branch -->
+<!-- <% movies.theater.forEach(function(theater){ %> -->
+  <h1 style="color: white;"><%= theater.branch%></h1>
+<!-- <% }); %>                                   -->
           
 <!-- edit need to have form for edit info but delete just click so it gonna be form to do this function in itself used in admin page -->
 <!-- hide edit and delete button form who isnt author of this item check it is the user-->

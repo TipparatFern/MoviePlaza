@@ -48,27 +48,26 @@ router.get('/:id', function(req,res){
     });
 });
 
-router.post('/', function(req, res){
-    Movie.findById(req.params.id, function(err, foundMovie){
-        if(err){
-            console.log(err);
-            res.redirect('/movie');
-        }else {
-            Theater.create(req.body.theater, function(err, theater){
-                if(err){
-                    console.log(err);
-                } else{
-                    //add comment. access user id ,username for comment
-                    theater.branch = req.body.branch;
-                    theater.save();
-                    foundMovie.theater.push(theater);
-                    foundMovie.save();
-                    res.redirect('/movie/'+ foundMovie._id);
-                }
-            });
-        }
-    });
-});
+// router.post('/:id', function(req, res){
+//     Movie.findById(req.params.id, function(err, foundMovie){
+//         if(err){
+//             console.log(err);
+//             res.redirect('/movie');
+//         }else {
+//             Theater.create(req.body.theater, function(err, theater){
+//                 if(err){
+//                     console.log(err);
+//                 } else{
+//                     theater.branch = req.body.branch;
+//                     theater.save();
+//                     foundMovie.theater.push(theater);
+//                     foundMovie.save();
+//                     res.redirect('/movie/'+ foundMovie._id);
+//                 }
+//             });
+//         }
+//     });
+// });
 
 //showtime
 router.get('/:id/showtime', function(req, res){

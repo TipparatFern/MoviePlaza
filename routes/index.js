@@ -28,7 +28,8 @@ router.post('/signup', function(req, res){
             console.log(err);
             //user go to this page when error
             return res.render('signup');
-        }//save decode password
+        }//save decode password    
+
         passport.authenticate('local')(req, res, function(){
             res.redirect('/movie');
         });   

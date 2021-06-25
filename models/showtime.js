@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var showtimeSchema = new mongoose.Schema({
     showtime: Date, //only time doesnt use date
     date: {
-        type:Date,
+        type: Date,
         default: Date.now
     },
     theater:{

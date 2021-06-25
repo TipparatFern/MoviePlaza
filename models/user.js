@@ -7,7 +7,6 @@ var UserSchema = new mongoose.Schema({
     username :String,
     email: String,
     password: String,
-    confirmpass: String,
     ticket: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Ticket'    

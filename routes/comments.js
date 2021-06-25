@@ -1,5 +1,3 @@
-const theater = require('../models/theater');
-
 var express     = require('express'),
     router      = express.Router({mergeParams: true}),
     middleware  = require('../middleware'),
