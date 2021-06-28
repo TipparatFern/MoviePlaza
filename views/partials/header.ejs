@@ -105,11 +105,12 @@
               </li>
             </ul>
             <div id="search"> 
-              <form class="d-flex">
+              <form class="d-flex" action="/search" method="POST">
                 <span style="color:#FFC90E;">
                   <i class="fas fa-search fa-2x" style="margin-right: 10px"></i>
                 </span>
-                <input class="form-control me-10" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-10" type="search" title="movies" name="search" onkeyup="myFunction()"
+                placeholder="Search movies" aria-label="Search">
               </form>
             </div>
             <ul>

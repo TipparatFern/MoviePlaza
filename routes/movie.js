@@ -13,6 +13,7 @@ router.get('/', function(req, res){
         }
     });
 });
+
 //multer middleware func
 router.post('/', function(req,res){
     var title = req.body.title;
@@ -48,27 +49,6 @@ router.get('/:id', function(req,res){
     });
 });
 
-// router.post('/:id', function(req, res){
-//     Movie.findById(req.params.id, function(err, foundMovie){
-//         if(err){
-//             console.log(err);
-//             res.redirect('/movie');
-//         }else {
-//             Theater.create(req.body.theater, function(err, theater){
-//                 if(err){
-//                     console.log(err);
-//                 } else{
-//                     theater.branch = req.body.branch;
-//                     theater.save();
-//                     foundMovie.theater.push(theater);
-//                     foundMovie.save();
-//                     res.redirect('/movie/'+ foundMovie._id);
-//                 }
-//             });
-//         }
-//     });
-// });
-
 //showtime
 router.get('/:id/showtime', function(req, res){
     Movie.findById(req.params.id, function(err, foundMovie){
@@ -92,6 +72,24 @@ router.get('/:id/showtime/:id', function(req, res){
     });
 });
 
+router.get('/search', function(req, res) {
+    res.render('search/search.ejs');
+});
+
+router.post('/search', function(req, res) {
+    var name = req.body.search;
+    res.redirect('/search/' + name);
+});
+
+router.get('/search/:title', function(req,res){
+    Movie.find({title: new RegExp(req.params.title, 'i')}, function(err, foundMovietitle){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('./search/search.ejs', {movies: foundMovietitle, sort: req.params.title});
+        }
+    });
+});
 
 
 module.exports = router;

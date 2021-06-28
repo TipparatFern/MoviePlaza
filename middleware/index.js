@@ -1,5 +1,5 @@
 //rights for access info
-var Movie = require('../models/movie');
+var Comment = require('../models/comment');
 
 var middlewareObj = {};
 
@@ -7,7 +7,7 @@ middlewareObj.checkCommentOwner = function(req ,res, next){
     //user is authen or not
     if(req.isAuthenticated()){
         // same id currently user
-        Movie.findById(req.params.id, function(err, foundComment){
+        Comment.findById(req.params.id, function(err, foundComment){
             if(err){
                 console.log(err);
             } else {//mongoose function check info is same

@@ -29,18 +29,15 @@
   </form>
 </div>
 
-
-
 <% movies.comments.forEach(function(comment){ %>
   <p style="margin-left: 200px; margin-top: 20px; color: whitesmoke;">
     <strong><%= comment.author.username %></strong> - <%= comment.text %>
-  </p>  
+  </p> 
+
 <%});%>
       
-<!-- for showing theater branch -->
-<!-- <% movies.theater.forEach(function(theater){ %> -->
-  <h1 style="color: white;"><%= theater.branch%></h1>
-<!-- <% }); %>                                   -->
+
+                                 
           
 <!-- edit need to have form for edit info but delete just click so it gonna be form to do this function in itself used in admin page -->
 <!-- hide edit and delete button form who isnt author of this item check it is the user-->

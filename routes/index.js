@@ -4,7 +4,28 @@ var express     = require('express'),
     Movie       = require('../models/movie'),
     passport    = require('passport');
 
+//search function
+router.get('/search', function(req, res) {
+    res.render('search/search.ejs');
+});
 
+router.post('/search', function(req, res) {
+    var name = req.body.search;
+    res.redirect('/search/' + name);
+});
+
+router.get('/search/:title', function(req,res){
+    Movie.find({title: new RegExp(req.params.title, 'i')}, function(err, foundMovietitle){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('./search/search.ejs', {movies: foundMovietitle, sort: req.params.title});
+        }
+    });
+});
+
+
+//home page
 router.get('/',function(req,res){
     Movie.find({}, function(err, allMovies){
         if(err){

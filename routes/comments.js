@@ -8,16 +8,6 @@ var express     = require('express'),
     middleware  = require('../middleware'),
 //comments
 //middleware route function function
-router.get('/new', middleware.isLoggedIn, function(req,res){
-    Movie.findById(req.params.id, function(err, foundMovie){
-        if(err){
-            console.log(err);
-        }else {
-            res.render('comments/new.ejs', {movies: foundMovie});
-        }
-    });
-});
-
 router.post('/', middleware.isLoggedIn, function(req, res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
@@ -42,7 +32,7 @@ router.post('/', middleware.isLoggedIn, function(req, res){
 });
 
 
-router.get('/:comment_id/edit', middleware.checkCommentOwner, function(req, res){
+router.get('/:comments_id/edit', middleware.checkCommentOwner, function(req, res){
     Comment.findById(req.paramas.comment_id, function(err, foundComment){
         if(err){
             res.redirect('back');
@@ -52,8 +42,14 @@ router.get('/:comment_id/edit', middleware.checkCommentOwner, function(req, res)
     });
 });
 
-router.get('/:comment_id', middleware.checkCommentOwner, function(req, res){
-    Comment.findByIdAndUpdate()
-})
+router.put('/:comments_id', middleware.checkCommentOwner, function(req, res){
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+        if(err){
+            res.redirect('back');
+        } else{
+            res.redirect('/movie/'+req.params.id);
+        }
+    });
+});
 
 module.exports = router;

@@ -2,7 +2,7 @@
 <div class="container">
   <h1>Edit comment</h1>
     <!-- ?_method for method override and know movie id  from router.get comment_id-->
-<form action='/movie/<%= movies._id %>/comments/<%= comments._id %>/edit?_method=PUT' method='POST' enctype="multipart/form-data" style="margin: 100px" > 
+<form action='/movie/<%= movies._id %>/comment/<%= comment._id %>/edit?_method=PUT' method='POST' enctype="multipart/form-data" style="margin: 100px" > 
   <div class="mb-3">
     <label class="form-label" style="color: #F7E967;">Comment</label>
     <input type="text" class="form-control" name="comments[text]" placeholder="<%= comments.text %>" value="<%= comments.text %>">

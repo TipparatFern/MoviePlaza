@@ -51,6 +51,6 @@ app.use('/theater', theaterRoutes);
 
 
 
-app.listen('9090',function(){
+app.listen('4000',function(){
     console.log("Movie Plaza is running");
 });

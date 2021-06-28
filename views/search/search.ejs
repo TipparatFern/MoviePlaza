@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="album py-5 wall-black">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-lg-5 row-cols-md-2 row-cols-sm-2  g-3">
+            <% movies.forEach(function(movie){ %>
+            <div class="col">
+                 <div class="card shadow-sm" style="width: 18rem">
+                    <div>
+                        <a href="/movie/<%= movie._id %>" role="button">
+                            <img src="<%= movie.image %>" class="card-img-top" height="350px">
+                        </a>
+                    </div>
+                </div>               
+            </div>
+            <% }); %> 
+
+        </div>
+    </div>
+</div>
+
+
+
+          
+<!-- <div> <a href="#" role="button"><i class="far fa-heart" style="color:  #F1433F;"></i></a></div> -->
+
+<%- include('../partials/footer.ejs') %>

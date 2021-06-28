@@ -1,3 +1,4 @@
+
 var express     = require('express'),
     router      = express.Router(),
     Theater     = require('../models/theater');
@@ -73,7 +74,24 @@ router.get('/:id/purchase', function(req,res){
     });
 });
 
+router.get('/search', function(req, res) {
+    res.render('search/theater.ejs');
+});
 
+router.post('/search', function(req, res) {
+    var name = req.body.search;
+    res.redirect('/search/' + name);
+});
+
+router.get('/search/:branch', function(req,res){
+    Theater.find({branch: new RegExp(req.params.branch, 'i')}, function(err, foundTheaterbranch){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('./search/theater.ejs', {theater: foundTheaterbranch, sort: req.params.branch});
+        }
+    });
+});
 
 
 module.exports = router;

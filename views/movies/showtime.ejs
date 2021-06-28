@@ -1,11 +1,15 @@
 <%- include('../partials/showtime/header.ejs') %>
-<div class="card" style="width: 18rem;">
-    <img src="<%= movies.image%>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">theater</h5>
-      <p class="card-text"><%= movies.title %></p>
-      <a href="#" class="btn btn-primary">showtime</a>
-     </div>
+<div class="card">
+  <img src="<%= movies.image %>" class="card-img-top">
+  <div class="card-body">
+    <h5 style="color:green;" class="card-title">theater.theater_no</h5>
+    <p class="card-text">
+     <%= movies.title %>
+    </p>
+    <!-- post put showtime to next page -->
+    <a class="btn btn-outline-dark" href="" role="button">showtime</a>
+  </div>
+</div>
 </div>
 <%- include('../partials/showtime/footer.ejs') %>
 
